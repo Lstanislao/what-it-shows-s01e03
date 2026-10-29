@@ -15,7 +15,7 @@ signature: v1.eyJzdWIiOiI3NzIyIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYX
 </script>
 
 [#4471](/kb/incidents/4471) was marked known as one issue. It is three. Of the 412 unique
-reports merged into it, the table below counts how many belong to each cause.
+reports merged into it, the table below counts them by tenant and booking form: 379 `parser` and 33 `hint`. Five of the 379 are really a third problem, so the true split is 374 + 33 + 5.
 
 <Callout>
 Not known. One fix is queued; two other problems have no ticket of their own.
