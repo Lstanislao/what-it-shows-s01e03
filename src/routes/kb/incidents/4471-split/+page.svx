@@ -4,14 +4,14 @@ title: '#4471 split · three problems, not one'
 owner: support desk
 status: living
 reviewed: 2026-10-29
-signature: Lstanislao
+signature: v1.eyJzdWIiOiI3NzIyIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMyNzI4NDQsImV4cCI6MTc5MzM1OTI0NH0.7OT_Hoyar-KbUgz-TTV_lCbfK7ylFPjUf3ma54XW9zY
 ---
 
 <script>
   import CauseTable from '#lib/kb/CauseTable.svelte';
   import Callout from '#lib/kb/Callout.svelte';
   import RenderStamp from '#lib/kb/RenderStamp.svelte';
-  const signature = 'Lstanislao';
+  const signature = 'v1.eyJzdWIiOiI3NzIyIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMyNzI4NDQsImV4cCI6MTc5MzM1OTI0NH0.7OT_Hoyar-KbUgz-TTV_lCbfK7ylFPjUf3ma54XW9zY';
 </script>
 
 [#4471](/kb/incidents/4471) was marked known as one issue. It is three. Of the 412 unique
