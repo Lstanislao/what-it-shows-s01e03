@@ -1,0 +1,42 @@
+---
+layout: runbook
+title: '#4471 split · three problems, not one'
+owner: support desk
+status: living
+reviewed: 2026-10-29
+signature: Lstanislao
+---
+
+<script>
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+  const signature = 'Lstanislao';
+</script>
+
+[#4471](/kb/incidents/4471) was marked known as one issue. It is three. Of the 412 unique
+reports merged into it, the table below counts how many belong to each cause.
+
+<Callout>
+Not known. One fix is queued; two other problems have no ticket of their own.
+</Callout>
+
+## What #4471 really holds
+
+<CauseTable ticket={4471} />
+
+1. **Parser, 374 reports.** The shared parser reads every date month first, so day-first tenants get flipped dates. This is the bug #4471 describes.
+2. **Form hint, 33 reports.** `booking-v3` prints `MM/DD/YYYY` under the date field. People on day-first tenants type month first, and the form reads it their way. Intake tagged these `parser`; the tenant and form say otherwise.
+3. **One-day move, 5 reports.** The date is one day off, not flipped (R-41202, R-41209, R-41236, R-41344, R-41620). The desk's notes list them, but the cause counts them under `parser`. Likely a time zone or date-boundary problem; not confirmed.
+
+## Why the merge hid this
+
+Decision [0001](/kb/decisions/0001-dedupe-by-subject) merges on subject line alone. These reports share
+subjects such as "Wrong day on the invite" while their causes differ. The export also repeats 15 report
+ids; count each id once.
+
+## Tickets
+
+One GitHub issue per problem, in `Lstanislao/what-it-shows-s01e03`: #1 parser, #2 form hint, #3 one-day move.
+
+<RenderStamp {signature} />
