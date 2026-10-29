@@ -1,6 +1,6 @@
 ---
 layout: runbook
-title: '#4471 split · three problems, not one'
+title: '#4471 split · two problems, not one'
 owner: support desk
 status: living
 reviewed: 2026-10-29
@@ -14,20 +14,19 @@ signature: v1.eyJzdWIiOiI3NzIyIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYX
   const signature = 'v1.eyJzdWIiOiI3NzIyIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMyNzI4NDQsImV4cCI6MTc5MzM1OTI0NH0.7OT_Hoyar-KbUgz-TTV_lCbfK7ylFPjUf3ma54XW9zY';
 </script>
 
-[#4471](/kb/incidents/4471) was marked known as one issue. It is three. Of the 412 unique
-reports merged into it, the table below counts them by tenant and booking form: 379 `parser` and 33 `hint`. Five of the 379 are really a third problem, so the true split is 374 + 33 + 5.
+[#4471](/kb/incidents/4471) was marked known as one issue. It is two. Of the 412 unique
+reports merged into it, the table below counts them by tenant and booking form.
 
 <Callout>
-Not known. One fix is queued; two other problems have no ticket of their own.
+Not known. One fix is queued; the second problem has no ticket of its own.
 </Callout>
 
 ## What #4471 really holds
 
 <CauseTable ticket={4471} />
 
-1. **Parser, 374 reports.** The shared parser reads every date month first, so day-first tenants get flipped dates. This is the bug #4471 describes.
+1. **Parser, 379 reports.** The shared parser reads every date month first, so day-first tenants get flipped dates. This is the bug #4471 describes. Five of these read as a one-day move (R-41202, R-41209, R-41236, R-41344, R-41620); the desk counts them here, by tenant.
 2. **Form hint, 33 reports.** `booking-v3` prints `MM/DD/YYYY` under the date field. People on day-first tenants type month first, and the form reads it their way. Intake tagged these `parser`; the tenant and form say otherwise.
-3. **One-day move, 5 reports.** The date is one day off, not flipped (R-41202, R-41209, R-41236, R-41344, R-41620). The desk's notes list them, but the cause counts them under `parser`. Likely a time zone or date-boundary problem; not confirmed.
 
 ## Why the merge hid this
 
@@ -37,6 +36,6 @@ ids; count each id once.
 
 ## Tickets
 
-One GitHub issue per problem, in `Lstanislao/what-it-shows-s01e03`: #1 parser, #2 form hint, #3 one-day move.
+One GitHub issue per problem, in `Lstanislao/what-it-shows-s01e03`: #1 parser (379 reports), #2 form hint (33 reports).
 
 <RenderStamp {signature} />
