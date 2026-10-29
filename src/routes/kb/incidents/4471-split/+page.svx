@@ -2,7 +2,7 @@
 layout: runbook
 title: '#4471 split · two problems, not one'
 owner: support desk
-status: living
+status: closed
 reviewed: 2026-10-29
 signature: v1.eyJzdWIiOiI3NzIyIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMyNzI4NDQsImV4cCI6MTc5MzM1OTI0NH0.7OT_Hoyar-KbUgz-TTV_lCbfK7ylFPjUf3ma54XW9zY
 ---
@@ -18,15 +18,15 @@ signature: v1.eyJzdWIiOiI3NzIyIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYX
 reports merged into it, the table below counts them by tenant and booking form.
 
 <Callout>
-Not known. One fix is queued; the second problem has no ticket of its own.
+Closed 5 October: the parser problem is fixed; the form hint problem will not be fixed.
 </Callout>
 
 ## What #4471 really holds
 
 <CauseTable ticket={4471} />
 
-1. **Parser, 379 reports.** The shared parser reads every date month first, so day-first tenants get flipped dates. This is the bug #4471 describes. Five of these read as a one-day move (R-41202, R-41209, R-41236, R-41344, R-41620); the desk counts them here, by tenant.
-2. **Form hint, 33 reports.** `booking-v3` prints `MM/DD/YYYY` under the date field. People on day-first tenants type month first, and the form reads it their way. Intake tagged these `parser`; the tenant and form say otherwise.
+1. **Parser, 379 reports.** The shared parser reads every date month first, so day-first tenants get flipped dates. This is the bug #4471 describes. **Fixed**: parse dd/mm for eu locales. Five of these read as a one-day move (R-41202, R-41209, R-41236, R-41344, R-41620); the desk counts them here, by tenant.
+2. **Form hint, 33 reports.** `booking-v3` prints `MM/DD/YYYY` under the date field. People on day-first tenants type month first, and the form reads it their way. Intake tagged these `parser`; the tenant and form say otherwise. **Won't fix**: the `booking-v3` form was retired.
 
 ## Why the merge hid this
 
